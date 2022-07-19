@@ -10,18 +10,20 @@
                 <a href="#"  class="">
                     <i class="fa fa-fw fa-database"></i> <span> MASTER DATA</span> <span class="menu-arrow"></span></a>
                 <ul class="list-unstyled">
-                    <li class=""><a href="">Unit</a></li>
-                    <li class=""><a href="">Klasifikasi</a></li>
                     <li class=""><a href="">User Akses</a></li>
                 </ul>
             </li>
             @endif
             <li class="submenu">
-                <a href="" class=""><i class="fa fa-envelope"></i><span> SURAT MASUK </span> </a>
+                <a href="" class=""><i class="fa fa-folder-open"></i><span> KAS MASUK </span> </a>
             </li>
             <li class="submenu">
-                <a href="" class=""><i class="fa fa-folder-open"></i><span> SURAT KELUAR </span> </a>
+                <a href="" class=""><i class="fa fa-folder-open"></i><span> KAS KELUAR </span> </a>
             </li>
+            <li class="submenu">
+                <a href="" class=""><i class="fa fa-envelope"></i><span>LAPORAN KAS </span> </a>
+            </li>
+
         </ul>
         <!-- <div class="clearfix"></div> -->
 

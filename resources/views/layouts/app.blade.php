@@ -39,7 +39,7 @@
 		</span>
 	</footer>
 </div>
-{{-- <script src="{{ asset('assets/js/jQuery-2.1.4.min.js') }}"></script> --}}
+<script src="{{ asset('assets/js/jQuery-2.1.4.min.js') }}"></script>
 {{-- <script src="{{ asset('assets/js/modernizr.min.js') }}"></script> --}}
 <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
 <script src="{{ asset('assets/js/moment.min.js') }}"></script>
