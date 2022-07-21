@@ -15,13 +15,13 @@
             </li>
             @endif
             <li class="submenu">
-                <a href="" class=""><i class="fa fa-folder-open"></i><span> KAS MASUK </span> </a>
+                <a href="{{ route('bukukas.masuk') }}" class=""><i class="fa fa-folder-open"></i><span> KAS MASUK </span> </a>
             </li>
             <li class="submenu">
-                <a href="" class=""><i class="fa fa-folder-open"></i><span> KAS KELUAR </span> </a>
+                <a href="{{ route('bukukas.keluar') }}" class=""><i class="fa fa-folder"></i><span> KAS KELUAR </span> </a>
             </li>
             <li class="submenu">
-                <a href="" class=""><i class="fa fa-envelope"></i><span>LAPORAN KAS </span> </a>
+                <a href="{{ route('bukukas') }}" class=""><i class="fa fa-print bigfonts"></i><span>LAPORAN KAS </span> </a>
             </li>
 
         </ul>

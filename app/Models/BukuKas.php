@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class BukuKas extends Model
 {
     use HasFactory;
+    public $timestamps = true;
+    protected $fillable = [
+        'tanggal',
+        'jenis',
+        'masuk',
+        'keluar',
+        'keterangan',
+        'user'
+    ];
 }

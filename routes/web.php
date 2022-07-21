@@ -25,6 +25,16 @@ Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/home', 'HomeController@index')->name('home');
 
+    //group buku kas
+    Route::group(['prefix' => 'kas'], function () {
+        Route::get('/', 'BukuKasController@index')->name('bukukas');
+        Route::get('ajax/index', 'BukuKasController@ajaxIndex')->name('ajax.bukukas');
+        Route::get('masuk', 'BukuKasController@masuk')->name('bukukas.masuk');
+        Route::get('keluar', 'BukuKasController@keluar')->name('bukukas.keluar');
+        Route::post('masuk/store', 'BukuKasController@masukStore')->name('kasmasuk.store');
+        Route::post('keluar/store', 'BukuKasController@keluarStore')->name('kaskeluar.store');
+    });
+
     //group profile
     Route::group(['prefix' => 'user'], function () {
         Route::get('/', 'UserController@index')->name('user');

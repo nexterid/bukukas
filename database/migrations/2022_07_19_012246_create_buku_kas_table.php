@@ -15,12 +15,11 @@ class CreateBukuKasTable extends Migration
     {
         Schema::create('buku_kas', function (Blueprint $table) {
             $table->id();
-            $table->string('no_transaksi', 50)->unique()->index()->comment("no transaksi");
             $table->date('tanggal');
             $table->enum('jenis', ['Kas Masuk', 'Kas Keluar', 'Saldo Kas']);
-            $table->double('masuk', 15, 2);
-            $table->double('keluar', 15, 2);
-            $table->string('keterangan');
+            $table->double('masuk', 15, 2)->nullable();
+            $table->double('keluar', 15, 2)->nullable();
+            $table->string('keterangan')->nullable();
             $table->integer('user');
             $table->timestamps();
         });

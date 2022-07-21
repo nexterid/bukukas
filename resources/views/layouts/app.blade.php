@@ -55,5 +55,7 @@
 <script src="{{ asset('assets/js/toastr.min.js') }}" defer></script>
 <!-- App js -->
 <script src="{{ asset('assets/js/pikeadmin.js') }}"></script>
+<script src="{{ asset('js/helper-function.js') }}"></script>
+@stack('scripts')
 </body>
 </html>
