@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\BukuKas;
+use App\Repository\BukuKas;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class BukuKasController extends Controller
 {
+    protected $bukukas;
+
     public function __construct()
     {
-        // $this->repoUser = new User();
+        $this->bukukas = new BukuKas();
     }
 
     public function index()
@@ -30,7 +32,22 @@ class BukuKasController extends Controller
 
     public function ajaxIndex(Request $request)
     {
-        dd($request->all());
+        $data['bulan'] = date('m', strtotime($request->tanggal));
+        $data['tahun'] = date('Y', strtotime($request->tanggal));
+        $getdata = $this->bukukas->getBukuKasBulan($data);
+        // dd($getdata);
+        $hasil = [];
+        foreach ($getdata as $val) {
+            $hasil[] = [
+                'tanggal' => tanggalIndo($val->tanggal),
+                'jenis' => $val->jenis,
+                'keterangan' => $val->keterangan,
+                'masuk' => $val->masuk ?? 0,
+                'keluar' => $val->keluar ?? 0
+            ];
+        }
+        $result = isset($hasil) ? array('data' => $hasil) : array('data' => 0);
+        return json_encode($result);
     }
     public function masukStore(Request $request)
     {

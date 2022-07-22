@@ -27,7 +27,7 @@
                                 <h3 class='box-title'><i class="fa fa-book"></i> LAPORAN BUKU KAS </h3>
                             </div>
                             <div class="col-lg-2">
-                                <input type="text" class="form-control" name="bulan" id="bulan" value="{{ date('M Y')}}" >
+                                <input type="text" class="form-control" name="bulan" id="bulan" value="{{ date('F Y')}}" >
                             </div>
                             <div class="col-lg-2" id="btn_cetak">
                                 <button type="submit" class="btn btn-warning"><i class="fa fa-print"></i> Cetak Buku Kas </button>
@@ -43,7 +43,7 @@
                                         <th style="width: 5%;text-align:center">No</th>
                                         <th style="width: 10%;text-align:center">Tanggal</th>
                                         <th style="width: 35%;text-align:center">Uraian</th>
-                                        <th style="width: 15%;text-align:center">Penerimaa (Debet)</th>
+                                        <th style="width: 15%;text-align:center">Penerimaan (Debet)</th>
                                         <th style="width: 15%;text-align:center">Pengeluaran (Kredit)</th>
                                         <th style="width: 15%;text-align:center">Saldo</th>
                                     </tr>
@@ -68,7 +68,7 @@
 </div>
 @endsection
 @push('scripts')
-<script src="{{ asset('assets/plugins/datepicker/bootstrap-datepicker.js') }}"></script>
-<script src="{{ asset('assets/plugins/datepicker/locales/bootstrap-datepicker.id.js') }}"></script>
+<script src="{{ asset('assets/plugins/datepicker/bootstrap-datepicker.min.js') }}"></script>
+{{-- <script src="{{ asset('assets/plugins/datepicker/locales/bootstrap-datepicker.id.js') }}"></script> --}}
 @include('bukukas.scripts')
 @endpush

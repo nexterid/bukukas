@@ -18,7 +18,7 @@
         <!-- end row -->
         <div class="row">
                 <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
-                    <a href="">
+                    <a href="{{ route('bukukas.masuk') }}">
                         <div class="card-box noradius noborder bg-default">
                             <i class="fa fa-cloud-download float-right text-white"></i>
                             <h6 class="text-white text-uppercase m-b-20">KAS </h6>
@@ -29,7 +29,7 @@
                 </div>
 
                 <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
-                    <a href="">
+                    <a href="{{ route('bukukas.keluar') }}">
                         <div class="card-box noradius noborder bg-warning">
                             <i class="fa fa-cloud-upload float-right text-white"></i>
                             <h6 class="text-white text-uppercase m-b-20">KAS</h6>
@@ -50,7 +50,7 @@
                 </div>
 
                 <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
-                    <a href="">
+                    <a href="{{ route('user') }}">
                         <div class="card-box noradius noborder bg-success">
                             <i class="fa fa-user float-right text-white"></i>
                             <h6 class="text-white text-uppercase m-b-120">Master</h6>
