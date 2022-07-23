@@ -64,7 +64,7 @@
                 <div class="card mb-3">
                     <div class="card-header bg-success text-white">
                         <h3>
-                            <i class="fa fa-paper-plane"></i> Transkasi
+                            <i class="fa fa-paper-plane"></i> Transkasi Masuk
                             <span class="pull-right">
                                 <div class="input-group date " id="datepicker">
                                     <div class="input-group-append">
@@ -72,7 +72,7 @@
                                             <i class="fa fa-calendar"></i>
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" readonly id="tanggal" value="{{ date('d-m-Y') }}" placeholder="Tanggal" name="tanggal" onchange="ajaxLoad()" >
+                                    <input type="text" class="form-control" readonly id="tanggal" value="{{ date('M Y') }}" placeholder="Tanggal" name="tanggal">
                                 </div>
                             </span>
                         </h3>
@@ -82,11 +82,11 @@
                             @csrf
                             <thead>
                                 <tr bgcolor="#E5E5E5" style="height:45px;">
-                                    <th>Tgl Agenda</th>
-                                    <th>Asal Surat</th>
-                                    <th>Tgl Surat</th>
-                                    <th width="35%">Isi Surat</th>
-                                    <th>Lampiran</th>
+                                    <th>No</th>
+                                    <th>Tanggal</th>
+                                    <th>Keterangan</th>
+                                    <th>Masuk</th>
+                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody></tbody>
@@ -103,58 +103,6 @@
 @push('scripts')
 <script src="{{ asset('assets/js/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('assets/js/dataTables.bootstrap4.min.js') }}"></script>
-<script src="{{ asset('assets/plugins/datepicker/bootstrap-datepicker.js') }}"></script>
-<script src="{{ asset('assets/plugins/datepicker/locales/bootstrap-datepicker.id.js') }}"></script>
-<script>
-    function ajaxLoad(){
-        var tanggal =$('#tanggal').val();
-        var token = $('meta[name="csrf-token"]').attr('content');
-        $('#mytable').dataTable({
-            "Processing": true,
-            "ServerSide": true,
-            "iDisplayLength": 25,
-            "bDestroy": true,
-            "sDom" : "<t<p i>>",
-            "autoWidth": false,
-            "fixedColumns": true,
-            "order": [],
-            "oLanguage": {
-                "sLengthMenu": "_MENU_ ",
-                "sInfo": "Showing <b>_START_ to _END_</b> of _TOTAL_ entries",
-                "sSearch": "Search Data :  ",
-                "sProcessing": "Loading data",
-            },
-            "ajax": {
-                "url": "",
-                "type": "post",
-                "data": {
-                    '_token': token,
-                    'tanggal': tanggal
-                }
-            },
-            "columns": [
-                {"width":"12%","mData": "tgl_agenda"},
-                {"width":"10%","mData": "asal_surat"},
-                {"width":"12%","mData": "tgl_surat"},
-                {"mData": "isi_surat"},
-                {"width":"10%","mData": "file_lampiran"},
-            ]
-        });
-        myTable = $('#mytable').DataTable();
-        $('#searchInput').keyup(function(){
-            myTable.search($(this).val()).draw() ;
-            $('.table').removeAttr('style');
-        });
-    }
-
-     // IIFE
-    (() =>  {
-        console.log('masuk sini gaes');
-        $("#datepicker").datepicker({
-            autoclose: true
-        });
-        ajaxLoad();
-    })();
-
-</script>
+<script src="{{ asset('assets/plugins/datepicker/bootstrap-datepicker.min.js') }}"></script>
+@include('home.scripts')
 @endpush

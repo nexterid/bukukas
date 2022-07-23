@@ -57,8 +57,7 @@
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">
                             <h5 class='card-title' id="saldoakhir"></h5>
-                            <h5 class="card-title">Saldo : <span class="text-primary" id="tampilsaldo"></span></h5>
-                            <a href="#" class="btn btn-primary" onclick="tutupBukuKas()" data-toggle="modal" data-target="#myModalKas" data-backdrop="static" data-keyboard="false">Tutup Buku Kas</a>
+                            <h5 class="card-title">Saldo Akhir: <span class="text-primary" id="tampilsaldo"></span></h5>
                         </li>
                     </ul>
                 </div>

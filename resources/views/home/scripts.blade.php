@@ -1,20 +1,15 @@
 <script type="text/javascript">
 $(function(){
-    let urlLoadData = '/kas/ajax/index';
-
+    let urlLoadData = '/kas/ajax/masuk';
 
     $('#tanggal').datepicker({
-        autoclose: true,
-    });
-
-    $('#bulan').datepicker({
         format: 'MM yyyy',
         viewMode: "months",
         minViewMode: "months",
         autoclose: true,
     });
 
-     $(document).on('keyup',"#jumlah",function(){
+    $(document).on('keyup',"#jumlah",function(){
         let val = $(this).val();
         let onlyAngka = val.replace(/[^\d]+/g,'')
         // getId('nominal').value = onlyAngka;
