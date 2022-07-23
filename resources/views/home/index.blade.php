@@ -72,13 +72,13 @@
                                             <i class="fa fa-calendar"></i>
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" readonly id="tanggal" value="{{ date('M Y') }}" placeholder="Tanggal" name="tanggal">
+                                    <input type="text" class="form-control" readonly id="bulan" value="{{ date('M Y') }}" placeholder="bulan" name="bulan">
                                 </div>
                             </span>
                         </h3>
                     </div>
                     <div class="card-body">
-                        <table width="100%" id="mytable" class="table table-sm table-responsive-xl">
+                        <table width="100%" id="tabel-masuk" class="table table-sm table-responsive-xl">
                             @csrf
                             <thead>
                                 <tr bgcolor="#E5E5E5" style="height:45px;">

@@ -1,8 +1,9 @@
 <script type="text/javascript">
 $(function(){
-    let urlLoadData = '/kas/ajax/masuk';
+    let urlLoadMasuk = '/kas/ajax/masuk';
+    let urlLoadKeluar= '/kas/ajax/keluar';
 
-    $('#tanggal').datepicker({
+    $('#bulan').datepicker({
         format: 'MM yyyy',
         viewMode: "months",
         minViewMode: "months",
@@ -21,45 +22,41 @@ $(function(){
      });
 
     const ajaxLoad = () => {
-        let tanggal = getId('bulan').value;
-        $.ajax({
-            type:"GET",
-            dataType:"JSON",
-            url:urlLoadData,
-            data:{
-                'tanggal':tanggal,
+        let tanggal = $("#bulan").val();
+        $('#tabel-masuk').dataTable({
+            Processing: true,
+            ServerSide: true,
+            sDom: '<t<p>>',
+            iDisplayLength: 25,
+            bDestroy: true,
+            autoWidth: false,
+            oLanguage: {
+                sLengthMenu: "_MENU_ ",
+                sInfo: "Showing <b>_START_ to _END_</b> of _TOTAL_ entries",
+                sSearch: "Search Data :  ",
+                sZeroRecords: "Tidak ada data",
+                sEmptyTable: "Data tidak tersedia",
+                sLoadingRecords: '<img src="../../ajax-loader.gif"> Loading...',
             },
-            success:function(res){
-                console.log(res.data)
-                let data = res.data;
-                let html ="";
-                let no=1;
-                let saldo =0;
-                let totalDebet =0;
-                let totalKredit =0;
-                for(let i in data){
-                    saldo +=data[i].masuk - data[i].keluar;
-                    html +='<tr>'
-                        html +='<td style="text-align:center">'+ no++
-                        html +='<td style="text-align:center">'+data[i].tanggal
-                        html +='<td>'+data[i].keterangan
-                        html +='<td style="text-align:right">'+ribuan(data[i].masuk)
-                        html +='<td style="text-align:right">'+ribuan(data[i].keluar)
-                        html +='<td style="text-align:right">'+ribuan(saldo)
-                    html +='</tr>'
-                    totalDebet += data[i].masuk;
-                    totalKredit += data[i].keluar;
-                }
-                html +='<tr bgcolor="gray">'
-                    html +='<th colspan="3" style="text-align:center">TOTAL'
-                    html +='<th style="text-align:right">'+ribuan(totalDebet)
-                    html +='<th style="text-align:right">' +ribuan(totalKredit)
-                    html +='<th style="text-align:right">'+ribuan(totalDebet-totalKredit)
-                html +='</tr>'
-               $('#tampildata').html(html);
-               $('#tampilsaldo').html(ribuan(totalDebet-totalKredit))
-            //     loadSaldoAkhir();
-            }
+            ajax: {
+                url: urlLoadMasuk,
+                type: "GET",
+                data: {
+                    tanggal : tanggal,
+                },
+            },
+            columns: [
+                { mData: "no" },
+                { mData: "tanggal" },
+                { mData: "keterangan" },
+                { mData: "masuk" },
+                { mData: "aksi" }
+            ]
+        });
+        oTable = $("#tabel-masuk").DataTable();
+        $("#term").keyup(function () {
+            oTable.search($(this).val()).draw();
+            $(".table").removeAttr("style");
         });
     };
 

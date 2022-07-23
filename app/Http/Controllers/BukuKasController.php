@@ -48,7 +48,7 @@ class BukuKasController extends Controller
             ];
         }
         $result = isset($hasil) ? array('data' => $hasil) : array('data' => 0);
-        return json_encode($result);
+        return response()->json($result);
     }
 
     public function ajaxMasuk(Request $request)
@@ -56,11 +56,12 @@ class BukuKasController extends Controller
         $data['bulan'] = date('m', strtotime($request->tanggal));
         $data['tahun'] = date('Y', strtotime($request->tanggal));
         $data['jenis'] = 'Kas Masuk';
-        $getdata = $this->bukukas->getBukuKasBulan($data);
-        // dd($getdata);
+        $getdata = $this->bukukas->getBukuKasJenis($data);
         $hasil = [];
+        $no = 1;
         foreach ($getdata as $val) {
             $hasil[] = [
+                'no' => $no++,
                 'tanggal' => tanggalIndo($val->tanggal),
                 'jenis' => $val->jenis,
                 'keterangan' => $val->keterangan,
@@ -69,7 +70,30 @@ class BukuKasController extends Controller
             ];
         }
         $result = isset($hasil) ? array('data' => $hasil) : array('data' => 0);
-        return json_encode($result);
+        return response()->json($result);
+    }
+
+    public function ajaxKeluar(Request $request)
+    {
+        $data['bulan'] = date('m', strtotime($request->tanggal));
+        $data['tahun'] = date('Y', strtotime($request->tanggal));
+        $data['jenis'] = 'Kas Keluar';
+        $getdata = $this->bukukas->getBukuKasJenis($data);
+        // dd($getdata);
+        $hasil = [];
+        $no = 1;
+        foreach ($getdata as $val) {
+            $hasil[] = [
+                'no' => $no++,
+                'tanggal' => tanggalIndo($val->tanggal),
+                'jenis' => $val->jenis,
+                'keterangan' => $val->keterangan,
+                'masuk' => $val->masuk ?? 0,
+                'aksi' => '<button class="btn btn-sm btn-warning"></button>'
+            ];
+        }
+        $result = isset($hasil) ? array('data' => $hasil) : array('data' => 0);
+        return response()->json($result);
     }
 
     public function masukStore(Request $request)
