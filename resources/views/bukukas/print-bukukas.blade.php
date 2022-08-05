@@ -69,7 +69,7 @@
                                     @endphp
                                     <tr>
                                         <td style="text-align: center">{{ $no++ }}</td>
-                                        <td style="text-align: center">{{ $val->tanggal }}</td>
+                                        <td style="text-align: center">{{ tanggalIndo($val->tanggal) }}</td>
                                         <td>{{ $val->keterangan }}</td>
                                         <td style="text-align: right">{{ rupiah($val->masuk) }}</td>
                                         <td style="text-align: right">{{ rupiah($val->keluar) }}</td>
