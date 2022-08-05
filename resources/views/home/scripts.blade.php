@@ -55,7 +55,7 @@ $(function(){
             columns: [
                 { mData: "no" },
                 { mData: "tanggal" },
-                { mData: "keterangan" },
+                { width: "30%",mData: "keterangan" },
                 { mData: "masuk" },
                 { mData: "aksi" }
             ],
@@ -118,7 +118,7 @@ $(function(){
             columns: [
                 { mData: "no" },
                 { mData: "tanggal" },
-                { mData: "keterangan" },
+                { width: "30%",mData: "keterangan" },
                 { mData: "keluar" },
                 { mData: "aksi" }
             ],
