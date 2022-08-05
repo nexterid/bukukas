@@ -31,6 +31,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('ajax/index', 'BukuKasController@ajaxIndex')->name('ajax.bukukas');
         Route::get('ajax/masuk', 'BukuKasController@ajaxMasuk')->name('ajax.kasmasuk');
         Route::get('ajax/keluar', 'BukuKasController@ajaxKeluar')->name('ajax.kaskeluar');
+        Route::get('ajax/cetak/{bulan}', 'BukuKasController@printBukuKas');
         Route::get('masuk', 'BukuKasController@masuk')->name('bukukas.masuk');
         Route::get('keluar', 'BukuKasController@keluar')->name('bukukas.keluar');
         Route::post('masuk/store', 'BukuKasController@masukStore')->name('kasmasuk.store');

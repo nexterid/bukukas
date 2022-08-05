@@ -98,6 +98,15 @@ class BukuKasController extends Controller
         return response()->json($result);
     }
 
+    public function printBukuKas($bulan)
+    {
+        $data['bulan'] = date('m', strtotime($bulan));
+        $data['tahun'] = date('Y', strtotime($bulan));
+        $data['getdata'] = $this->bukukas->getBukuKasBulan($data);
+        $data['bulan_tahun'] = $bulan;
+        return view('bukukas.print-bukukas', compact('data'));
+    }
+
     public function ajaxDelete(Request $request)
     {
         $delete = BukuKas::where('id', $request->kode)->delete();

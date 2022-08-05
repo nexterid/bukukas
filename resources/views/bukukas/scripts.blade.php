@@ -1,6 +1,8 @@
 <script type="text/javascript">
 $(function(){
     let urlLoadData = '/kas/ajax/index';
+    let urlCetakBuku = '/kas/ajax/cetak';
+
     $('#tanggal').datepicker({
         autoclose: true,
     });
@@ -19,9 +21,15 @@ $(function(){
         $(this).val(formatRupiah($(this).val()));
     })
 
-     $(document).on('change',"#bulan",function(){
+    $(document).on('change',"#bulan",function(){
         ajaxLoad();
-     });
+    });
+
+    $(document).on('click','#btn-cetak', function() {
+        let bulan = getId('bulan').value;
+        let url = urlCetakBuku +'/'+ bulan;
+        let w = window.open(url, "_blank", "width=850, height=600");
+    })
 
     const ajaxLoad = () => {
         let tanggal = getId('bulan').value;
