@@ -53,6 +53,8 @@
 <script src="{{ asset('assets/js/jquery.nicescroll.js') }}"></script>
 {{-- <script src="{{ asset('assets/js/jquery.scrollTo.min.js') }}"></script> --}}
 <script src="{{ asset('assets/js/toastr.min.js') }}" defer></script>
+<script src="{{ asset('assets/plugins/datepicker/bootstrap-datepicker.js') }}"></script>
+<script src="{{ asset('assets/plugins/datepicker/locales/bootstrap-datepicker.id.js') }}"></script>
 <!-- App js -->
 <script src="{{ asset('assets/js/pikeadmin.js') }}"></script>
 <script src="{{ asset('js/helper-function.js') }}"></script>
