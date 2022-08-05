@@ -40,7 +40,7 @@
                             </tr>
                             <tr>
                                 <td style="text-align: center; padding: 1px;width:90%;font-size: 12px;height: 10px">
-                                    BULAN {{ strtoupper($data['bulan_tahun'])}}
+                                    BULAN {{ strtoupper(bulan($data['bulan']).' '.$data['tahun'])}}
                                 </td>
                             </tr>
                         </table>

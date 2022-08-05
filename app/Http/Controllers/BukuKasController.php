@@ -103,7 +103,6 @@ class BukuKasController extends Controller
         $data['bulan'] = date('m', strtotime($bulan));
         $data['tahun'] = date('Y', strtotime($bulan));
         $data['getdata'] = $this->bukukas->getBukuKasBulan($data);
-        $data['bulan_tahun'] = $bulan;
         return view('bukukas.print-bukukas', compact('data'));
     }
 
