@@ -60,5 +60,5 @@
 @push('scripts')
 <script src="{{ asset('assets/plugins/datepicker/bootstrap-datepicker.js') }}"></script>
 <script src="{{ asset('assets/plugins/datepicker/locales/bootstrap-datepicker.id.js') }}"></script>
-@include('bukukas.scripts')
+@include('bukukas.scripts-form')
 @endpush

@@ -24,7 +24,7 @@ class RepoBukuKas
             ->whereMonth('tanggal', $params['bulan'])
             ->whereYear('tanggal', $params['tahun'])
             ->where('jenis', $params['jenis'])
-            ->orderBy('tanggal', 'ASC')
+            ->orderBy('tanggal', 'DESC')
             ->get();
     }
 }

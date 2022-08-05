@@ -1,8 +1,6 @@
 <script type="text/javascript">
 $(function(){
     let urlLoadData = '/kas/ajax/index';
-
-
     $('#tanggal').datepicker({
         autoclose: true,
     });

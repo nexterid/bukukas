@@ -62,11 +62,12 @@ class BukuKasController extends Controller
         foreach ($getdata as $val) {
             $hasil[] = [
                 'no' => $no++,
+                'kode' => $val->id,
                 'tanggal' => tanggalIndo($val->tanggal),
                 'jenis' => $val->jenis,
                 'keterangan' => $val->keterangan,
-                'masuk' => $val->masuk ?? 0,
-                'aksi' => '<button class="btn btn-sm btn-warning"></button>'
+                'masuk' => rupiah($val->masuk) ?? 0,
+                'aksi' => '<button type="button" id="delete-list" class="btn btn-sm btn-outline-danger"><i class="fa fa-trash"></i></button>'
             ];
         }
         $result = isset($hasil) ? array('data' => $hasil) : array('data' => 0);
@@ -85,15 +86,26 @@ class BukuKasController extends Controller
         foreach ($getdata as $val) {
             $hasil[] = [
                 'no' => $no++,
+                'kode' => $val->id,
                 'tanggal' => tanggalIndo($val->tanggal),
                 'jenis' => $val->jenis,
                 'keterangan' => $val->keterangan,
-                'masuk' => $val->masuk ?? 0,
-                'aksi' => '<button class="btn btn-sm btn-warning"></button>'
+                'keluar' => rupiah($val->keluar) ?? 0,
+                'aksi' => '<button type="button" id="delete-list-keluar" class="btn btn-sm btn-outline-danger"><i class="fa fa-trash"></i></button>'
             ];
         }
         $result = isset($hasil) ? array('data' => $hasil) : array('data' => 0);
         return response()->json($result);
+    }
+
+    public function ajaxDelete(Request $request)
+    {
+        $delete = BukuKas::where('id', $request->kode)->delete();
+        if ($delete) {
+            return response()->json(['code' => 200, 'message' => 'data berhasil dihapus']);
+        } else {
+            return response()->json(['code' => 201, 'message' => 'data gagal dihapus']);
+        }
     }
 
     public function masukStore(Request $request)

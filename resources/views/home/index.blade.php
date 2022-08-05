@@ -90,6 +90,54 @@
                                 </tr>
                             </thead>
                             <tbody></tbody>
+                            <tfoot>
+                                <tr class="bg-success text-white">
+                                    <th colspan="3" style="text-align:right">TOTAL MASUK:</th>
+                                    <th></th>
+                                    <th><input type="hidden" id="sum-total"></th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-6">
+                <div class="card mb-3">
+                    <div class="card-header bg-danger text-white">
+                        <h3>
+                            <i class="fa fa-paper-plane"></i> Transkasi Keluar
+                            <span class="pull-right">
+                                <div class="input-group date " id="datepicker">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </span>
+                                    </div>
+                                    <input type="text" class="form-control" readonly id="bulan-keluar" value="{{ date('M Y') }}" placeholder="bulan" name="bulan">
+                                </div>
+                            </span>
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <table width="100%" id="tabel-keluar" class="table table-sm table-responsive-xl">
+                            @csrf
+                            <thead>
+                                <tr bgcolor="#E5E5E5" style="height:45px;">
+                                    <th>No</th>
+                                    <th>Tanggal</th>
+                                    <th>Keterangan</th>
+                                    <th>Masuk</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                            <tfoot>
+                                <tr class="bg-success text-white">
+                                    <th colspan="3" style="text-align:right">TOTAL KELUAR:</th>
+                                    <th></th>
+                                    <th><input type="hidden" id="sum-total"></th>
+                                </tr>
+                            </tfoot>
                         </table>
                     </div>
                 </div>

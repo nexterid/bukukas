@@ -35,6 +35,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('keluar', 'BukuKasController@keluar')->name('bukukas.keluar');
         Route::post('masuk/store', 'BukuKasController@masukStore')->name('kasmasuk.store');
         Route::post('keluar/store', 'BukuKasController@keluarStore')->name('kaskeluar.store');
+        Route::delete('ajax/delete', 'BukuKasController@ajaxDelete')->name('ajax.delete');
     });
 
     //group profile

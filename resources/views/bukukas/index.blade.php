@@ -22,17 +22,18 @@
                 <div class="card mb-3">
                     <div class="card-header bg-secondary text-white">
                         <form action="" method="post">
-                        <div class="row">
-                            <div class="col-lg-8">
-                                <h3 class='box-title'><i class="fa fa-book"></i> LAPORAN BUKU KAS </h3>
+                            <div class="row">
+                                <div class="col-lg-7">
+                                    <h3 class='box-title'><i class="fa fa-book"></i> LAPORAN BUKU KAS </h3>
+                                </div>
+                                <div class="col-lg-2">
+                                    <input type="text" class="form-control" name="bulan" id="bulan" value="{{ date('F Y')}}" >
+                                </div>
+                                <div class="col-lg-3">
+                                    <button type="button" id="btn-cetak" class="btn btn-warning"><i class="fa fa-print"></i> Cetak Buku Kas </button>
+                                    <button type="button" id="btn-export" class="btn btn-success"><i class="fa fa-file-excel-o"></i> Export Excel</button>
+                                </div>
                             </div>
-                            <div class="col-lg-2">
-                                <input type="text" class="form-control" name="bulan" id="bulan" value="{{ date('F Y')}}" >
-                            </div>
-                            <div class="col-lg-2" id="btn_cetak">
-                                <button type="submit" class="btn btn-warning"><i class="fa fa-print"></i> Cetak Buku Kas </button>
-                            </div>
-                        </div>
                         </form>
                     </div>
                     <div class="card-body">
