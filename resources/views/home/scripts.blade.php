@@ -154,7 +154,7 @@ $(function(){
 
     $("#tabel-masuk tbody").on("click", "tr td button#delete-list", function() {
         let parentRow = $(this).closest("tr");
-        let data = oTable.row(parentRow).data();
+        let data = oTableMasuk.row(parentRow).data();
         if (confirm("Data transaksi akan dihapus!?")) {
             console.log(data.kode);
             $.ajax({
@@ -178,7 +178,7 @@ $(function(){
 
     $("#tabel-keluar tbody").on("click", "tr td button#delete-list-keluar", function() {
         let parentRow = $(this).closest("tr");
-        let data = oTable.row(parentRow).data();
+        let data = oTableKeluar.row(parentRow).data();
         if (confirm("Data transaksi akan dihapus!?")) {
             console.log(data.kode);
             $.ajax({
