@@ -63,19 +63,24 @@
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-6">
                 <div class="card mb-3">
                     <div class="card-header bg-success text-white">
-                        <h3>
-                            <i class="fa fa-paper-plane"></i> Transkasi Masuk
-                            <span class="pull-right">
+                        <div class="row">
+                            <div class="col-lg-6">
+                               <h3><i class="fa fa-paper-plane"></i> Transkasi Masuk</h3>
+                            </div>
+                            <div class="col-lg-3">
+                                <input type="text" class="form-control form-control-sm" id="cari-masuk" placeholder="cari data masuk">
+                            </div>
+                            <div class="col-lg-3">
                                 <div class="input-group date " id="datepicker">
                                     <div class="input-group-append">
                                         <span class="input-group-text input-group-addon">
                                             <i class="fa fa-calendar"></i>
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" readonly id="bulan" value="{{ date('M Y') }}" placeholder="bulan" name="bulan">
+                                    <input type="text" class="form-control form-control-sm" readonly id="bulan" value="{{ date('M Y') }}" placeholder="bulan" name="bulan">
                                 </div>
-                            </span>
-                        </h3>
+                            </div>
+                        </div>
                     </div>
                     <div class="card-body">
                         <table width="100%" id="tabel-masuk" class="table table-sm table-responsive-xl">
@@ -104,19 +109,24 @@
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-6">
                 <div class="card mb-3">
                     <div class="card-header bg-danger text-white">
-                        <h3>
-                            <i class="fa fa-paper-plane"></i> Transkasi Keluar
-                            <span class="pull-right">
+                        <div class="row">
+                            <div class="col-lg-6">
+                               <h3><i class="fa fa-paper-plane"></i> Transkasi Keluar</h3>
+                            </div>
+                            <div class="col-lg-3">
+                                <input type="text" class="form-control form-control-sm" id="cari-keluar" placeholder="cari data keluar">
+                            </div>
+                            <div class="col-lg-3">
                                 <div class="input-group date " id="datepicker">
                                     <div class="input-group-append">
                                         <span class="input-group-text input-group-addon">
                                             <i class="fa fa-calendar"></i>
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" readonly id="bulan-keluar" value="{{ date('M Y') }}" placeholder="bulan" name="bulan">
+                                    <input type="text" class="form-control form-control-sm" readonly id="bulan-keluar" value="{{ date('M Y') }}" placeholder="bulan" name="bulan">
                                 </div>
-                            </span>
-                        </h3>
+                            </div>
+                        </div>
                     </div>
                     <div class="card-body">
                         <table width="100%" id="tabel-keluar" class="table table-sm table-responsive-xl">

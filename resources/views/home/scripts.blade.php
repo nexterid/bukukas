@@ -82,9 +82,9 @@ $(function(){
                 $("#sum-total").val(total);
             },
         });
-        oTable = $("#tabel-masuk").DataTable();
-        $("#term").keyup(function () {
-            oTable.search($(this).val()).draw();
+        oTableMasuk = $("#tabel-masuk").DataTable();
+        $("#cari-masuk").keyup(function () {
+            oTableMasuk.search($(this).val()).draw();
             $(".table").removeAttr("style");
         });
     };
@@ -145,9 +145,9 @@ $(function(){
                 $("#sum-total").val(total);
             },
         });
-        oTable = $("#tabel-keluar").DataTable();
-        $("#term2").keyup(function () {
-            oTable.search($(this).val()).draw();
+        oTableKeluar = $("#tabel-keluar").DataTable();
+        $("#cari-keluar").keyup(function () {
+            oTableKeluar.search($(this).val()).draw();
             $(".table").removeAttr("style");
         });
     };
